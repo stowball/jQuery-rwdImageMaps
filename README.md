@@ -8,3 +8,9 @@ jQuery RWD Image Maps
 Usage:
 
 $('img[usemap]').rwdImageMaps();
+
+* * *
+
+Demo:
+
+http://www.mattstow.com/experiment/responsive-image-maps/rwd-image-maps.html
