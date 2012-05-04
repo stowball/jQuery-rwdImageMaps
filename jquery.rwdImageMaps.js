@@ -8,13 +8,17 @@
 * Licensed under the MIT license
 */
 (function($) {
+	var w, h;
 	$.fn.rwdImageMaps = function() {
 		var $img = this;
 		var rwdImageMap = function() {
 			$img.each(function() {
 				if (typeof($(this).attr('usemap')) == 'undefined')
 					return;
-				var w = $(this).attr('width'), h = $(this).attr('height'), wPercent = $(this).width()/100, hPercent = $(this).height()/100, map = $(this).attr('usemap').replace('#', ''), c = 'coords';
+				var wPercent = $(this).width()/100, hPercent = $(this).height()/100, map = $(this).attr('usemap').replace('#', ''), c = 'coords';
+				if (w == undefined) {
+					w = $img.attr('width'), h = $img.attr('height');
+				}
 				$('map[name="' + map + '"]').find('area').each(function() {
 					if (!$(this).data(c))
 						$(this).data(c, $(this).attr(c));
