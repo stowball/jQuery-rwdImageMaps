@@ -20,7 +20,7 @@
 				
 				var that = this;
 				// Since WebKit doesn't know the height until after the image has loaded, perform everything in an onload copy
-				$('<img />').attr('src', $(that).attr('src')).load(function() {
+				$('<img />').load(function() {
 					var w, h;
 					// jQuery < 1.6 incorrectly uses the actual image width/height instead of the attribute's width/height
 					if (v < 1.6)
@@ -50,7 +50,7 @@
 						}
 						$(this).attr(c, coordsPercent.toString());
 					});
-				});
+				}).attr('src', $(that).attr('src'));
 			});
 		};
 		rwdImageMap();
