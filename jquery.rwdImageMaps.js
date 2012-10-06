@@ -1,5 +1,5 @@
 /*
-* rwdImageMaps jQuery plugin v1.2
+* rwdImageMaps jQuery plugin v1.3
 *
 * Allows image maps to be used in a responsive design by recalculating the area coordinates to match the actual image size on load and window.resize
 *
@@ -8,28 +8,31 @@
 * http://mattstow.com
 * Licensed under the MIT license
 */
-(function($) {
+;(function($) {
 	$.fn.rwdImageMaps = function() {
-		var $img = this;
-		var v = parseFloat($.fn.jquery);
+		var $img = this,
+			version = parseFloat($.fn.jquery);
 		
 		var rwdImageMap = function() {
 			$img.each(function() {
 				if (typeof($(this).attr('usemap')) == 'undefined')
 					return;
 				
-				var that = this;
-				var $that = $(that);
+				var that = this,
+					$that = $(that);
 				// Since WebKit doesn't know the height until after the image has loaded, perform everything in an onload copy
-				$('<img />').attr('src', $that.attr('src')).load(function() {
-					var w, h;
+				$('<img />').load(function() {
+					var w,
+						h,
+						attrW = 'width',
+						attrH = 'height';
 					// jQuery < 1.6 incorrectly uses the actual image width/height instead of the attribute's width/height
-					if (v < 1.6)
-						w = that.getAttribute('width'),
-						h = that.getAttribute('height');
+					if (version < 1.6)
+						w = that.getAttribute(attrW),
+						h = that.getAttribute(attrH);
 					else
-						w = $that.attr('width'),
-						h = $that.attr('height');	
+						w = $that.attr(attrW),
+						h = $that.attr(attrH);	
 					
 					var wPercent = $that.width()/100,
 						hPercent = $that.height()/100,
@@ -41,8 +44,8 @@
 						if (!$this.data(c))
 							$this.data(c, $this.attr(c));
 						
-						var coords = $this.data(c).split(',');
-						var coordsPercent = new Array(coords.length);
+						var coords = $this.data(c).split(','),
+							coordsPercent = new Array(coords.length);
 						
 						for (var i = 0; i < coordsPercent.length; ++i) {
 							if (i % 2 === 0)
@@ -52,9 +55,11 @@
 						}
 						$this.attr(c, coordsPercent.toString());
 					});
-				});
+				}).attr('src', $that.attr('src'));
 			});
 		};
 		$(window).resize(rwdImageMap).trigger('resize');
+		
+		return this;
 	};
 })(jQuery);
