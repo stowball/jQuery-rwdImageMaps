@@ -34,6 +34,16 @@
 						w = $that.attr(attrW),
 						h = $that.attr(attrH);	
 					
+					if (typeof(w) == 'undefined' || typeof(h) == 'undefined') {
+						// get original image size by creating a temporary copy
+						var t = new Image();
+						t.src = $that.attr("src");
+						if (typeof(w) == 'undefined')
+							w = t.width;
+						if (typeof(h) == 'undefined')
+							h = t.height;
+					}
+
 					var wPercent = $that.width()/100,
 						hPercent = $that.height()/100,
 						map = $that.attr('usemap').replace('#', ''),
