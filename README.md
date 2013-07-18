@@ -6,6 +6,7 @@
 
 **Usage:**
 
+* If possible, add correct `width` and `height` attributes to your image map images. You can override these in CSS to make them responsive.
 * Add a link to jQuery in your page, preferably at the bottom just before the closing `</body>`
 * After jQuery, either in a `<script>` block or a separate file, call:
 
