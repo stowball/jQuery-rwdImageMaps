@@ -11,7 +11,8 @@
 ;(function($) {
 	$.fn.rwdImageMaps = function() {
 		var $img = this,
-			version = parseFloat($.fn.jquery);
+			rawVersion = $.fn.jquery;
+			version = parseFloat(rawVersion.substring(rawVersion.indexOf(".") + 1, rawVersion.lastIndexOf(".")));
 		
 		var rwdImageMap = function() {
 			$img.each(function() {
@@ -28,8 +29,8 @@
 						attrW = 'width',
 						attrH = 'height';
 					
-					// jQuery < 1.6 incorrectly uses the actual image width/height instead of the attribute's width/height
-					if (version < 1.6)
+					// jQuery < 6 incorrectly uses the actual image width/height instead of the attribute's width/height
+					if (version < 6)
 						w = that.getAttribute(attrW),
 						h = that.getAttribute(attrH);
 					else
