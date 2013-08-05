@@ -1,17 +1,16 @@
 /*
-* rwdImageMaps jQuery plugin v1.4
+* rwdImageMaps jQuery plugin v1.5
 *
 * Allows image maps to be used in a responsive design by recalculating the area coordinates to match the actual image size on load and window.resize
 *
-* Copyright (c) 2012 Matt Stow
+* Copyright (c) 2013 Matt Stow
 * https://github.com/stowball/jQuery-rwdImageMaps
 * http://mattstow.com
 * Licensed under the MIT license
 */
 ;(function($) {
 	$.fn.rwdImageMaps = function() {
-		var $img = this,
-			version = parseFloat($.fn.jquery);
+		var $img = this;
 		
 		var rwdImageMap = function() {
 			$img.each(function() {
@@ -23,16 +22,8 @@
 				
 				// Since WebKit doesn't know the height until after the image has loaded, perform everything in an onload copy
 				$('<img />').load(function() {
-					var w,
-						h,
-						attrW = 'width',
-						attrH = 'height';
-					
-					// jQuery < 1.6 incorrectly uses the actual image width/height instead of the attribute's width/height
-					if (version < 1.6)
-						w = that.getAttribute(attrW),
-						h = that.getAttribute(attrH);
-					else
+					var attrW = 'width',
+						attrH = 'height',
 						w = $that.attr(attrW),
 						h = $that.attr(attrH);
 					
