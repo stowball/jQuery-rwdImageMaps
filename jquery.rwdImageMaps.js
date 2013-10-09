@@ -9,8 +9,20 @@
 * Licensed under the MIT license
 */
 ;(function($) {
-	$.fn.rwdImageMaps = function() {
-		var $img = this;
+	$.fn.rwdImageMaps = function(options) {
+		var $img = this,
+            defaults = {
+                // use img[width], img[height] attributes to set values?
+                useImgDimensionAttrs: true,
+                // bind and trigger the main method (rwdImageMap) to window.resize?
+                // allows for using this plugin in custom resize methods without
+                // continuously triggering the window.resize method
+                triggerOnResize: true
+            },
+            attrW = 'width',
+            attrH = 'height';
+
+        options = $.extend(true, defaults, options);
 		
 		var rwdImageMap = function() {
 			$img.each(function() {
@@ -22,10 +34,8 @@
 				
 				// Since WebKit doesn't know the height until after the image has loaded, perform everything in an onload copy
 				$('<img />').load(function() {
-					var attrW = 'width',
-						attrH = 'height',
-						w = $that.attr(attrW),
-						h = $that.attr(attrH);
+                    var w = options.useImgDimensionAttrs ? $that.attr(attrW) : null,
+                        h = options.useImgDimensionAttrs ? $that.attr(attrH) : null;
 					
 					if (!w || !h) {
 						var temp = new Image();
@@ -48,19 +58,24 @@
 						
 						var coords = $this.data(c).split(','),
 							coordsPercent = new Array(coords.length);
-						
-						for (var i = 0; i < coordsPercent.length; ++i) {
-							if (i % 2 === 0)
-								coordsPercent[i] = parseInt(((coords[i]/w)*100)*wPercent);
-							else
-								coordsPercent[i] = parseInt(((coords[i]/h)*100)*hPercent);
-						}
-						$this.attr(c, coordsPercent.toString());
+
+                        for (var i = 0; i < coordsPercent.length; ++i) {
+                            if (i % 2 === 0) {
+                                coordsPercent[i] = parseInt(((coords[i]/w)*100)*wPercent);
+                            } else {
+                                coordsPercent[i] = parseInt(((coords[i]/h)*100)*hPercent);
+                            }
+                        }
+                        $this.attr(c, coordsPercent.toString());
 					});
 				}).attr('src', $that.attr('src'));
 			});
 		};
-		$(window).resize(rwdImageMap).trigger('resize');
+        if (options.triggerOnResize) {
+            $(window).resize(rwdImageMap).trigger('resize');
+        } else {
+            rwdImageMap();
+        }
 		
 		return this;
 	};
