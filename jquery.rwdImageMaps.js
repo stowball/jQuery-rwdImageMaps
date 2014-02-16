@@ -11,8 +11,8 @@
 ;(function($) {
 	$.fn.rwdImageMaps = function() {
 		var $img = this;
-		
 		var rwdImageMap = function() {
+			
 			$img.each(function() {
 				if (typeof($(this).attr('usemap')) == 'undefined')
 					return;
