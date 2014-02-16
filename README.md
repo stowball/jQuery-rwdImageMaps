@@ -1,6 +1,6 @@
-# jQuery RWD Image Maps
+# AngularJS RWD Image Maps
 
-### Allows image maps to be used in a responsive design by recalculating the area coordinates to match the actual image size on load and window.resize
+### An AngularJS Directive that allows image maps to be used in a responsive design by recalculating the area coordinates to match the actual image size on load and window.resize
 
 ---
 
@@ -8,23 +8,25 @@
 
 * If possible, add [correct, unitless](http://dev.w3.org/html5/markup/img.html) `width` and `height` attributes to your image map images. You can override these in CSS to make them responsive.
 * Add a link to jQuery in your page, preferably at the bottom just before the closing `</body>`
-* After jQuery, either in a `<script>` block or a separate file, call:
+* Include AngularJS link and angular-rwdImageMaps.js
+
+---
 
 ```js
-$('img[usemap]').rwdImageMaps();
-```
-
-You may also want to wrap it inside a `$(document).ready()` function, like so:
-
-```js
-$(document).ready(function(e) {
-    $('img[usemap]').rwdImageMaps();
-});
+angular.module('map', ['rwdImageMaps'])
+	.controller('MapCtrl', function($scope){
+		$scope.myTrigger = function(arg){
+			alert(arg);
+		}
+	});
 ```
 
 #### Demo:
-
+Original jQuery Plugin
 http://mattstow.com/experiment/responsive-image-maps/rwd-image-maps.html
+
+AngularJS Directive
+Inside Demo Folder
 
 ---
 
