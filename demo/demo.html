@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Responsive Image Maps AngularJS Directive</title>
+	<style>
+	body {
+		font-family: Helvetica, Arial, sans-serif;
+	}
+	h1 {
+		font-size: 20px;
+	}
+	div {
+		width: 100%;
+	}
+	img[usemap] {
+		border: none;
+		height: auto;
+		max-width: 100%;
+		width: auto;
+	}
+	</style>
+</head>
+<body ng-app="map">
+<div ng-controller="MapCtrl">
+	<h1>Responsive Image Maps AngularJS Directive</h1>
+	<p>Allows image maps to be used in a responsive design by recalculating the area coordinates to match the actual image size on load and window.resize.</p>
+	<p><a href="https://github.com/cowglow/jQuery-rwdImageMaps">Download the AngularJS Directive from github</a>
+	<strong>or</strong>
+	<a href="https://github.com/stowball/jQuery-rwdImageMaps">Download the original jQuery plugin from github</a></p>
+	<p>This image map was created in minutes with Adobe Fireworks.</p>
+	
+	<!-- Start Demo Image Map -->
+	<img class="rwdimgmap" src="powerpuff-girls.fw.jpg" width="1024" height="768" usemap="#powerpuffgirls" alt="" />
+	<map name="powerpuffgirls">
+		<area shape="poly" coords="122,36,281,36,285,37,287,39,289,42,289,47,289,48,278,77,276,81,274,84,271,85,218,85,218,90,210,90,208,95,207,99,204,100,72,100,26,87,23,84,20,81,19,76,35,40,37,38,43,35,62,35,65,30,68,26,72,25,115,25,119,27,121,30,122,36,122,36" href="" ng-click="myTrigger('The Powerpuff Girls')" title="The Powerpuff Girls" alt="The Powerpuff Girls" />
+		<area shape="poly" coords="864,668,912,650,922,668,971,667,973,718,981,722,985,729,988,731,1010,731,1010,742,833,742,833,730,865,730,865,721,874,721,874,718,864,668,864,668" href="" ng-click="myTrigger('Cartoon Network')" title="Cartoon Network" alt="Cartoon Network" />
+		<area shape="poly" coords="1010,298,995,281,979,267,962,256,944,248,927,242,909,238,876,236,857,237,838,240,817,246,797,255,778,266,761,281,746,299,735,322,730,335,728,346,726,348,721,349,709,344,711,361,718,378,708,380,697,388,688,398,685,404,685,411,686,419,691,425,698,429,707,431,735,426,743,427,752,433,762,444,774,454,798,469,787,483,779,481,772,482,761,486,753,495,747,505,746,516,746,521,748,527,751,532,759,538,741,561,734,572,732,584,733,591,737,599,744,604,754,607,765,604,776,597,797,570,817,543,857,488,865,488,893,488,910,485,924,483,930,483,935,485,939,490,934,496,931,501,929,506,932,514,938,519,945,522,954,523,966,521,979,516,985,512,989,507,993,500,994,493,991,484,986,476,967,464,982,454,998,440,1013,425,1024,409,1024,329,1017,312,1010,298,1010,298" href="" ng-click="myTrigger('Buttercup')" title="Buttercup" alt="Buttercup" />
+		<area shape="poly" coords="571,101,563,83,562,66,549,80,541,96,537,112,536,128,537,141,531,141,508,141,508,141,511,133,517,126,533,114,500,111,476,111,452,114,438,118,424,124,410,131,400,140,392,152,390,167,391,174,394,183,400,191,409,198,391,215,379,234,371,252,368,271,367,277,368,298,371,316,381,338,396,358,414,375,399,378,387,385,379,393,377,405,378,412,382,418,388,424,395,429,411,434,425,435,431,446,439,456,459,474,480,488,502,500,514,507,523,515,528,523,530,534,529,541,526,547,515,562,532,556,548,547,562,536,574,523,583,508,590,490,594,470,596,448,596,430,591,410,587,398,599,390,613,382,628,371,643,356,657,337,666,313,669,299,670,284,669,276,668,264,670,263,697,263,704,261,711,257,716,251,719,243,718,236,715,231,706,221,694,215,683,213,677,213,670,215,664,220,656,232,645,215,652,206,657,199,660,191,662,181,660,169,655,158,648,150,638,142,617,130,596,120,582,112,571,101,571,101" href="" ng-click="myTrigger('Blossom')" title="Blossom" alt="Blossom" />
+		<area shape="poly" coords="254,286,232,271,207,260,179,254,150,252,119,254,103,257,88,263,71,270,61,275,58,274,57,273,45,269,36,268,17,271,7,276,1,283,0,283,0,285,0,290,0,352,2,354,1,355,1,390,3,401,5,410,9,420,22,441,39,460,58,476,47,480,38,487,32,494,30,504,33,515,41,524,53,531,69,534,77,533,85,530,90,525,93,518,91,512,88,508,85,505,85,502,86,499,89,497,97,496,120,500,138,503,154,503,167,503,185,531,215,576,235,609,241,617,248,622,255,626,265,628,273,626,280,621,285,614,287,605,283,592,276,580,261,558,269,553,273,547,276,541,277,536,274,524,267,513,257,504,250,501,244,501,240,502,237,503,225,488,242,478,259,468,276,451,282,447,292,446,318,450,327,448,334,445,339,439,341,431,337,419,329,409,318,401,307,398,301,398,301,393,301,391,303,391,321,393,336,391,352,387,370,380,387,370,373,368,364,364,358,360,353,354,350,347,347,330,345,313,343,302,340,293,336,286,331,280,318,272,305,267,293,266,282,267,272,270,262,276,254,286,254,286" href="" ng-click="myTrigger('Bubbles')" title="Bubbles" alt="Bubbles" />
+	</map>
+		
+	<!-- End Demo Image Map -->
+	
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js"></script>
+
+<script src="../angular-rwdImageMaps.min.js"></script>
+
+<script type="text/javascript" charset="utf-8">
+	angular.module('map', ['rwdImageMaps'])
+		.controller('MapCtrl', function($scope){
+			$scope.myTrigger = function(arg){
+				alert(arg + ' clicked');
+			}
+		});
+</script>
+
+<!-- Original jQuery Method -->
+<!--
+<script src="../jquery.rwdImageMaps.min.js"></script>
+<script>
+$(document).ready(function(e) {
+	$('img[usemap]').rwdImageMaps();
+	
+	$('area').on('click', function() {
+		alert($(this).attr('alt') + ' clicked');
+	});
+});
+</script>
+-->
+</body>
+</html>
