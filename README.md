@@ -12,6 +12,11 @@
 
 ---
 
+```html
+	<img class="rwdimgmap" usemap="#YourMapName" />
+	or
+	<img rwdimgmap usemap="#YourMapName" />
+```
 ```js
 angular.module('map', ['rwdImageMaps'])
 	.controller('MapCtrl', function($scope){
@@ -26,7 +31,7 @@ Original jQuery Plugin
 http://mattstow.com/experiment/responsive-image-maps/rwd-image-maps.html
 
 AngularJS Directive
-Inside Demo Folder
+http://www.cowglow.com/github/rwdImageMaps
 
 ---
 
