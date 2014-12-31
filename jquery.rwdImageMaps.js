@@ -27,6 +27,11 @@
 						w = $that.attr(attrW),
 						h = $that.attr(attrH);
 					
+					if (!w || !h){
+						w = that.naturalWidth;
+						h = that.naturalHeight;
+					}
+					
 					if (!w || !h) {
 						var temp = new Image();
 						temp.src = $that.attr('src');
