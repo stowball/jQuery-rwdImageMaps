@@ -11,14 +11,14 @@
 * After jQuery, either in a `<script>` block or a separate file, call:
 
 ```js
-$('img[usemap]').rwdImageMaps();
+$(window).rwdImageMaps();
 ```
 
 You may also want to wrap it inside a `$(document).ready()` function, like so:
 
 ```js
 $(document).ready(function(e) {
-    $('img[usemap]').rwdImageMaps();
+    $(window).rwdImageMaps();
 });
 ```
 

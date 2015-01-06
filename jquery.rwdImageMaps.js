@@ -9,11 +9,9 @@
 * Licensed under the MIT license
 */
 ;(function($) {
-	$.fn.rwdImageMaps = function() {
-		var $img = this;
-		
-		var rwdImageMap = function() {
-			$img.each(function() {
+    $.fn.rwdImageMaps = function() {
+        var rwdImageMap = function() {
+            $('img[usemap]').each(function() {
 				if (typeof($(this).attr('usemap')) == 'undefined')
 					return;
 				
