@@ -4,6 +4,9 @@
 
 ---
 
+#### Bugfixes:
+* Using naturalWidth & naturalHeight for further calculations
+
 #### Usage:
 
 * If possible, add [correct, unitless](http://dev.w3.org/html5/markup/img.html) `width` and `height` attributes to your image map images. You can override these in CSS to make them responsive.
