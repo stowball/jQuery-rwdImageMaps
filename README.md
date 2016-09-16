@@ -28,6 +28,6 @@ http://mattstow.com/experiment/responsive-image-maps/rwd-image-maps.html
 
 ---
 
-Copyright (c) 2012 [Matt Stow](http://mattstow.com)  
+Copyright (c) 2016 [Matt Stow](http://mattstow.com)  
 Licensed under the MIT license *(see [LICENSE](https://github.com/stowball/jQuery-rwdImageMaps/blob/master/LICENSE) for details)*  
 Minified version created with Online YUI Compressor: http://www.refresh-sf.com/yui/
