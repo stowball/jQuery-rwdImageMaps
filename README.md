@@ -1,4 +1,5 @@
 # jQuery RWD Image Maps
+[![CDNJS](https://img.shields.io/cdnjs/v/jQuery-rwdImageMaps.svg)](https://cdnjs.com/libraries/jQuery-rwdImageMaps)
 
 ### Allows image maps to be used in a responsive design by recalculating the area coordinates to match the actual image size on load and window.resize
 
