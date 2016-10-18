@@ -1,0 +1,9 @@
+{
+	"name": "jQuery-rwdImageMaps",
+	"version": "0.1.5",
+	"keywords": ["image map"],
+	"main": ["jquery.rwdImageMaps.js","jquery.rwdImageMaps.min.js"],
+	"dependencies": {
+		"jquery": ">=1.7.0"
+	}
+}
