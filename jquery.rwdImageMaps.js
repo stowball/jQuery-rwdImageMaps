@@ -36,8 +36,8 @@
 							h = temp.height;
 					}
 
-					var wPercent = $that.width()/100,
-						hPercent = $that.height()/100,
+					var wPercent = $that.width()/w,
+						hPercent = $that.height()/h,
 						map = $that.attr('usemap').replace('#', ''),
 						c = 'coords';
 
@@ -51,9 +51,9 @@
 
 						for (var i = 0; i < coordsPercent.length; ++i) {
 							if (i % 2 === 0)
-								coordsPercent[i] = parseInt(((coords[i]/w)*100)*wPercent);
+								coordsPercent[i] = parseInt(coords[i]*wPercent);
 							else
-								coordsPercent[i] = parseInt(((coords[i]/h)*100)*hPercent);
+								coordsPercent[i] = parseInt(coords[i]*hPercent);
 						}
 						$this.attr(c, coordsPercent.toString());
 					});
