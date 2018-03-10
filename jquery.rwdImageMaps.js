@@ -22,18 +22,26 @@
 
 				// Since WebKit doesn't know the height until after the image has loaded, perform everything in an onload copy
 				$('<img />').on('load', function() {
-					var attrW = 'width',
-						attrH = 'height',
-						w = $that.attr(attrW),
-						h = $that.attr(attrH);
+					var w, h;
+					if ($that.data('w') && $that.data('h')) {
+						w = $that.data('w');
+						h = $that.data('h');
+					} else {
+						var attrW = 'width',
+							attrH = 'height';
+							w = $that.attr(attrW);
+							h = $that.attr(attrH);
 
-					if (!w || !h) {
-						var temp = new Image();
-						temp.src = $that.attr('src');
-						if (!w)
-							w = temp.width;
-						if (!h)
-							h = temp.height;
+						if (!w || !h) {
+							var temp = new Image();
+							temp.src = $that.attr('src');
+							if (!w)
+								w = temp.width;
+							if (!h)
+								h = temp.height;
+						}
+						$that.data('w', w);
+						$that.data('h', h);
 					}
 
 					var wPercent = $that.width()/100,
