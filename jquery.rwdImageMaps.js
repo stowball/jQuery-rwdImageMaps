@@ -42,20 +42,22 @@
 						c = 'coords';
 
 					$('map[name="' + map + '"]').find('area').each(function() {
-						var $this = $(this);
+								var $this = $(this);
 						if (!$this.data(c))
 							$this.data(c, $this.attr(c));
-
-						var coords = $this.data(c).split(','),
+						
+						if ($this.data(c) !== undefined) {
+							var coords = $this.data(c).split(','),
 							coordsPercent = new Array(coords.length);
-
-						for (var i = 0; i < coordsPercent.length; ++i) {
-							if (i % 2 === 0)
-								coordsPercent[i] = parseInt(((coords[i]/w)*100)*wPercent);
-							else
-								coordsPercent[i] = parseInt(((coords[i]/h)*100)*hPercent);
+	
+							for (var i = 0; i < coordsPercent.length; ++i) {
+								if (i % 2 === 0)
+									coordsPercent[i] = parseInt(((coords[i]/w)*100)*wPercent);
+								else
+									coordsPercent[i] = parseInt(((coords[i]/h)*100)*hPercent);
+								}
+							$this.attr(c, coordsPercent.toString());
 						}
-						$this.attr(c, coordsPercent.toString());
 					});
 				}).attr('src', $that.attr('src'));
 			});
